@@ -2,6 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { createBottomTapNavigator } from '@react-navigation/bottom-tabs';
 import { Home, Search, Profile } from '../screens';
+import { Ionicons } from '@expo/vector-icons'
 
 const Tap = createBottomTapNavigator();
 
@@ -22,7 +23,15 @@ const screenOptions = {
 const BottomTapNavigation = () => {
   return (
     <Tap.Navigation>
-      <Tap.Screen name="Home" component={Home} />
+      <Tap.Screen
+        name="Home"
+        component={Home}
+        options={{
+          tabBarIcon: ({ focused } ) => {
+          return <Ionicons />
+        }
+      }}
+      />
       <Tap.Screen name="Search" component={Search} />
       <Tap.Screen name="Profile" component={Profile} />
     </Tap.Navigation>
