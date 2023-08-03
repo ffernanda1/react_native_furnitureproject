@@ -2,7 +2,8 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { createBottomTapNavigator } from '@react-navigation/bottom-tabs';
 import { Home, Search, Profile } from '../screens';
-import { Ionicons } from '@expo/vector-icons'
+import { Ionicons } from '@expo/vector-icons';
+import { COLORS } from '../constants/index';
 
 const Tap = createBottomTapNavigator();
 
@@ -22,18 +23,43 @@ const screenOptions = {
 
 const BottomTapNavigation = () => {
   return (
-    <Tap.Navigation>
+    <Tap.Navigation screenOptions={screenOptions}>
       <Tap.Screen
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({ focused } ) => {
-          return <Ionicons />
-        }
-      }}
+          tabBarIcon: ({ focused }) => {
+            return <Ionicons
+              name={focused ? "home" : 'home-outline'}
+              size={24}
+              color={focused ? COLORS.primary : COLORS.gray2} />
+          }
+        }}
       />
-      <Tap.Screen name="Search" component={Search} />
-      <Tap.Screen name="Profile" component={Profile} />
+      <Tap.Screen
+        name="Search"
+        component={Search}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return <Ionicons
+              name={'search-sharp'}
+              size={24}
+              color={focused ? COLORS.primary : COLORS.gray2} />
+          }
+        }}
+      />
+      <Tap.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          tabBarIcon: ({ focused }) => {
+            return <Ionicons
+              name={focused ? "person" : 'person-outline'}
+              size={24}
+              color={focused ? COLORS.primary : COLORS.gray2} />
+          }
+        }}
+      />
     </Tap.Navigation>
   )
 }
