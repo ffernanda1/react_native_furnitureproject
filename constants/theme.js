@@ -30,6 +30,10 @@ const SIZES = {
   width
 };
 
+const FONT = {
+  
+}
+
 
 const SHADOWS = {
   small: {
