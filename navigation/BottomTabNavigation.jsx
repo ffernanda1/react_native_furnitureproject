@@ -2,7 +2,7 @@ import { View, Text } from 'react-native'
 import React from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Home, Search, Profile } from '../screens';
-import Icon from 'react-native-vector-icons/Ionicons';
+import { House, HouseActive } from '../assets/icons'
 import { COLORS } from '../constants/index';
 
 const Tab = createBottomTabNavigator();
@@ -22,6 +22,7 @@ const screenOptions = {
 }
 
 const BottomTabNavigation = () => {
+
   return (
     <Tab.Navigator screenOptions={screenOptions}>
       <Tab.Screen
@@ -30,10 +31,7 @@ const BottomTabNavigation = () => {
         options={{
           tabBarIcon: ({ focused }) => {
             return (
-              <Icon
-                name={"home"}
-                size={24}
-                color={focused ? COLORS.primary : COLORS.gray2} />
+              focused ? <House /> : <HouseActive />
             )
           }
         }}
@@ -44,10 +42,7 @@ const BottomTabNavigation = () => {
         options={{
           tabBarIcon: ({ focused }) => {
             return (
-              <Icon
-                name={"search-sharp"}
-                size={24}
-                color={focused ? COLORS.primary : COLORS.gray2} />
+              focused ? <House /> : <HouseActive />
             )
           }
         }}
@@ -58,10 +53,7 @@ const BottomTabNavigation = () => {
         options={{
           tabBarIcon: ({ focused }) => {
             return (
-              <Icon
-                name={focused ? "person" : "person-outline"}
-                size={24}
-                color={focused ? COLORS.primary : COLORS.gray2} />
+              focused ? <House /> : <HouseActive />
             )
           }
         }}
