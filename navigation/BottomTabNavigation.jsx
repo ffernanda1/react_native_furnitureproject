@@ -53,7 +53,7 @@ const BottomTabNavigation = () => {
         options={{
           tabBarIcon: ({ focused }) => {
             return (
-              focused ? <House /> : <HouseActive />
+              <House />
             )
           }
         }}
